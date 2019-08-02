@@ -51,7 +51,7 @@ func TestBubbleSortReturnsSorted(t *testing.T) {
 		// t.Run creates a sub test and runs it like a normal test
 		t.Run(name, func(t *testing.T) {
 			result := bubble(test.input)
-			a.Equal(result, test.want, "bubble Failed to Sort")
+			a.Equal(result, test.want, "bubble failed to sort")
 		})
 	}
 }
