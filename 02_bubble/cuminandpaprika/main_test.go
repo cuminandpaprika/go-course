@@ -32,7 +32,6 @@ func TestBubbleSortsSingle(t *testing.T) {
 	actual := bubble(input)
 
 	a.Equal(expected, actual, "Bubble Sorts Single Input")
-	// Check it's a copy
 }
 
 func TestBubbleSortReturnsSorted(t *testing.T) {
@@ -51,7 +50,7 @@ func TestBubbleSortReturnsSorted(t *testing.T) {
 		// t.Run creates a sub test and runs it like a normal test
 		t.Run(name, func(t *testing.T) {
 			result := bubble(test.input)
-			a.Equal(result, test.want, "bubble failed to sort")
+			a.Equal( test.want, result, "bubble failed to sort")
 		})
 	}
 }
