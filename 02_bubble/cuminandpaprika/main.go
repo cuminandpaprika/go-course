@@ -13,30 +13,27 @@ func main() {
 }
 
 func bubble(unsorted []int) []int {
-	var swapped bool
+	var isFinishedSorting bool
 	for {
+		isFinishedSorting = true
 		for index := 0; index < len(unsorted) -1; index++ {
-			fmt.Fprintf(out, "Comparing %v and %v\n", unsorted[index],unsorted[index+1])
-			fmt.Fprintln(out, unsorted[index:index+2])
-			swapped = sort(unsorted[index:index+2])
+			fmt.Fprintf(out, "Comparing %v and %v\n", unsorted[index],unsorted[index+1])			
+			if (leftIsGreater(unsorted[index:index+2])) {
+				swap(unsorted[index:index+2])
+				isFinishedSorting = false
+			}
 		}
-		if (!swapped) {
+		if (isFinishedSorting) {
 			return unsorted
 		}
 	}
-
-	return unsorted
 }
 
-func sort(unsortedPair []int) bool {
-	if (leftIsGreater(unsortedPair)) {
-		unsortedPair[0], unsortedPair[1] = unsortedPair[1], unsortedPair[0]
-		fmt.Fprintf(out, "Swapped %v and %v\n", unsortedPair[0],unsortedPair[1])
-		return true
-	}
-	return false
+func swap(unsortedPair []int) {
+	fmt.Fprintf(out, "Swapping %v and %v\n", unsortedPair[0],unsortedPair[1])
+	unsortedPair[0], unsortedPair[1] = unsortedPair[1], unsortedPair[0]	
 } 
 
 func leftIsGreater(pair []int) bool {
-	return (pair[0] > pair[1])
+	return pair[0] > pair[1]
 }
